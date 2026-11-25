@@ -689,6 +689,44 @@ body {
     background: #ffffff;
     color: #080a10;
 }
+/* СОЦСЕТИ */
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    background: #ffffff;
+    color: #080a10;
+}
+
+.social-link svg {
+    width: 23px;
+    height: 23px;
+    fill: currentColor;
+}
+
+.social-vk {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
 
 .contacts-footer {
     display: flex;
