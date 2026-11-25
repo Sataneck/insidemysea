@@ -84,8 +84,7 @@ body {
 }
 
 .navigation a:hover {
-    opacity: 1;
-    color: #aebbd2;
+    opacity: 0.65;
     transform: translateY(-2px);
 }
 
