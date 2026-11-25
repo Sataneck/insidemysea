@@ -535,105 +535,26 @@ body {
         width: 100%;
         flex-direction: row;
     }
-
+ы
     .concert-links a {
         flex: 1;
         padding: 14px 8px;
         font-size: 9px;
     }
 }
-/* РАЗДЕЛ О ГРУППЕ */
+/* НЕТ ПРЕДСТОЯЩИХ КОНЦЕРТОВ */
 
-.about {
-    position: relative;
-    padding: 140px 10% 60px;
-    background: #0e1119;
-    min-height: 650px;
-    overflow: hidden;
-    scroll-margin-top: 20px;
+.no-concerts {
+    padding: 45px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.about-heading {
-    margin-bottom: 80px;
-}
-
-.about-heading .eyebrow {
-    color: #8793a8;
-}
-
-.about-heading h2 {
-    font-size: clamp(45px, 7vw, 90px);
-    line-height: 0.95;
-    letter-spacing: -4px;
-    font-weight: 800;
-}
-
-.about-content {
-    display: flex;
-    gap: 45px;
-    max-width: 850px;
-    margin-left: auto;
-}
-
-.about-line {
-    width: 2px;
-    min-width: 2px;
-    background: rgba(255,255,255,.35);
-}
-
-.about-text {
-    max-width: 650px;
-}
-
-.about-text p {
-    font-size: clamp(15px, 1.5vw, 18px);
-    line-height: 1.9;
+.no-concerts p {
+    margin: 0;
     color: #aeb5c2;
-    margin-bottom: 22px;
-}
-
-.about-text p:first-child {
-    color: #fff;
-    font-size: clamp(18px, 2vw, 23px);
-}
-
-.about-footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 110px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,.12);
-    color: #687183;
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 3px;
-}
-
-@media (max-width: 700px) {
-    .about {
-        padding: 90px 7% 40px;
-    }
-
-    .about-heading {
-        margin-bottom: 55px;
-    }
-
-    .about-heading h2 {
-        letter-spacing: -2px;
-    }
-
-    .about-content {
-        gap: 22px;
-    }
-
-    .about-text p {
-        line-height: 1.7;
-    }
-
-    .about-footer {
-        margin-top: 70px;
-        font-size: 8px;
-        letter-spacing: 2px;
-    }
 }
 /* РАЗДЕЛ КОНТАКТОВ */
 
