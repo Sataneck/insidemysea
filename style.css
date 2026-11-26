@@ -40,14 +40,6 @@ body {
                 backdrop-filter .35s ease,
                 border-color .35s ease;
 }
-
-/* Размер логотипа */
-.logo img {
-    height: 32px;
-    width: auto;
-    display: block;
-}
-
 /* Навигация */
 
 /* Шапка после начала прокрутки */
@@ -109,10 +101,6 @@ body {
     url("assets/band.avif") type("image/avif"),
     url("assets/band.webp") type("image/webp")
 );
-    background-image: image-set(
-        url("assets/band.avif") type("image/avif"),
-        url("assets/band.webp") type("image/webp")
-    );
     background-size: cover;
     background-position: center 42%;
     background-repeat: no-repeat;
@@ -289,15 +277,6 @@ body {
     object-fit: cover;
     object-position: center 42%;
 }
-
-    .hero-overlay {
-        background:
-            linear-gradient(
-                0deg,
-                rgba(5, 7, 13, 0.25) 0%,
-                transparent 50%
-            );
-    }
 
     .header {
         height: 85px;
