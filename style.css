@@ -98,9 +98,9 @@ body {
     inset: 0;
     background-image: url("assets/band.jpg");
     background-image: image-set(
-    url("assets/band.avif") type("image/avif"),
-    url("assets/band.webp") type("image/webp")
-);
+        url("assets/band.avif") type("image/avif"),
+        url("assets/band.webp") type("image/webp")
+    );
     background-size: cover;
     background-position: center 42%;
     background-repeat: no-repeat;
@@ -462,7 +462,6 @@ body {
 }
 
 .no-concerts p {
-    margin: 0;
     color: #aeb5c2;
     font-size: 11px;
     letter-spacing: 3px;
