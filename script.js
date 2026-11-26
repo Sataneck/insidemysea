@@ -1,6 +1,7 @@
 const animatedElements = document.querySelectorAll(
     '.section-heading, .concert-card, .releases-heading, .releases-grid, .releases-footer, .contacts-heading, .contacts-content, .contacts-footer'
 );
+
 // ИЗМЕНЕНИЕ ШАПКИ ПРИ ПРОКРУТКЕ
 
 const header = document.querySelector('.header');
@@ -15,6 +16,7 @@ function updateHeader() {
 
 window.addEventListener('scroll', updateHeader);
 updateHeader();
+
 // ГЕНЕРАЦИЯ КАРТОЧЕК КОНЦЕРТОВ
 
 const concertList = document.querySelector('#concert-list');
@@ -68,3 +70,31 @@ if (upcomingConcerts.length === 0) {
         </article>
     `).join('');
 }
+
+// ГЕНЕРАЦИЯ КАРТОЧЕК РЕЛИЗОВ
+
+const releasesGrid = document.querySelector('#releases-grid');
+
+releasesGrid.innerHTML = releases.map(release => `
+    <a href="${release.link}"
+       class="release-card"
+       target="_blank"
+       rel="noopener noreferrer">
+
+        <div class="release-cover">
+            <picture>
+                <source srcset="${release.image}.avif" type="image/avif">
+                <source srcset="${release.image}.webp" type="image/webp">
+                <img src="${release.fallback}"
+                     alt="${release.alt}"
+                     loading="lazy">
+            </picture>
+
+            <span class="release-arrow">↗</span>
+        </div>
+
+        <h3>${release.title}</h3>
+        <p>${release.year}</p>
+
+    </a>
+`).join('');
