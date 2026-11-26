@@ -413,16 +413,6 @@ body {
     color: #080a10;
 }
 
-.concert-links .ticket-button {
-    background: #ffffff;
-    color: #080a10;
-}
-
-.concert-links .ticket-button:hover {
-    background: transparent;
-    color: #ffffff;
-}
-
 /* МОБИЛЬНАЯ ВЕРСИЯ КОНЦЕРТОВ */
 
 @media (max-width: 700px) {
