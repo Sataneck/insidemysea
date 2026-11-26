@@ -369,13 +369,6 @@ body {
     flex: 1;
 }
 
-.concert-label {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #8793a8;
-    margin-bottom: 13px;
-}
-
 .concert-info h3 {
     font-size: clamp(20px, 3vw, 30px);
     margin-bottom: 12px;
