@@ -689,6 +689,12 @@ body {
     font-size: clamp(18px, 2vw, 24px);
     font-weight: 700;
     letter-spacing: -.5px;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.release-card:hover h3 {
+    text-decoration: underline;
 }
 
 .release-card p {
