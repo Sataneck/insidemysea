@@ -222,14 +222,6 @@ body {
 
 @media (max-width: 700px) {
 
-.hero-image {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    transform: scale(1.03);
-    animation: imageReveal 1.5s ease-out forwards;
-}
-
     .header {
         height: 85px;
         padding: 20px 6%;
