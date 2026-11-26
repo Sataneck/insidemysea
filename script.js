@@ -1,7 +1,3 @@
-const animatedElements = document.querySelectorAll(
-    '.section-heading, .concert-card, .releases-heading, .releases-grid, .releases-footer, .contacts-heading, .contacts-content, .contacts-footer'
-);
-
 // ИЗМЕНЕНИЕ ШАПКИ ПРИ ПРОКРУТКЕ
 
 const header = document.querySelector('.header');
@@ -75,7 +71,8 @@ if (upcomingConcerts.length === 0) {
 
 const releasesGrid = document.querySelector('#releases-grid');
 
-releasesGrid.innerHTML = releases.map(release => `
+if (releasesGrid) {
+    releasesGrid.innerHTML = releases.map(release => `
     <a href="${release.link}"
        class="release-card"
        target="_blank"
@@ -98,3 +95,4 @@ releasesGrid.innerHTML = releases.map(release => `
 
     </a>
 `).join('');
+}
