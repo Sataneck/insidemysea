@@ -587,7 +587,7 @@ body {
     }
 
     .contacts-heading h2 {
-        letter-spacing: -2px;
+        letter-spacing: 0px;
     }
 
     .contacts-content {
@@ -620,9 +620,9 @@ body {
 }
 
 .releases-heading h2 {
-    font-size: clamp(45px, 7vw, 90px);
+    font-size: clamp(50px, 8vw, 100px);
     line-height: .95;
-    letter-spacing: 0px;
+    letter-spacing: 0;
     font-weight: 800;
 }
 
