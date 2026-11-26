@@ -351,6 +351,7 @@ body {
 }
 
 .date-day {
+    font-family: 'Montserrat', sans-serif;
     font-size: 76px;
     line-height: 1;
     font-weight: 800;
@@ -371,6 +372,7 @@ body {
 }
 
 .concert-info h3 {
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(20px, 3vw, 30px);
     margin-bottom: 12px;
 }
@@ -517,6 +519,7 @@ body {
 }
 
 .contact-button {
+    font-family: 'Montserrat', sans-serif;
     display: inline-flex;
     align-items: center;
     gap: 35px;
@@ -680,6 +683,7 @@ body {
 }
 
 .release-card h3 {
+    font-family: 'Montserrat', sans-serif;
     margin-top: 22px;
     font-size: clamp(18px, 2vw, 24px);
     font-weight: 700;
