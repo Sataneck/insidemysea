@@ -291,7 +291,6 @@ body {
     padding: 120px 10%;
     background: #0b0d13;
     min-height: 500px;
-    scroll-margin-top: 20px;
 }
 
 .section-heading {
@@ -474,7 +473,6 @@ body {
     padding: 140px 10% 60px;
     background: #090b11;
     min-height: 600px;
-    scroll-margin-top: 20px;
 }
 
 .contacts-heading {
@@ -600,7 +598,6 @@ body {
     background: #0e1119;
     min-height: 100vh;
     overflow: hidden;
-    scroll-margin-top: 20px;
 }
 
 .releases-heading {
