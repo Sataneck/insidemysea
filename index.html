@@ -1,139 +1,730 @@
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ОСНОВНЫЕ НАСТРОЙКИ */
 
-    <title>МоёМоре | Официальный сайт</title>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <meta name="description" content="МоёМоре — музыка, концерты и новые релизы. Всё о группе на официальном сайте.">
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="МоёМоре | Официальный сайт">
-    <meta property="og:description" content="Следи за концертами и новыми релизами">
-    <meta property="og:image" content="https://sataneck.github.io/insidemysea/assets/band.jpg">
+html {
+    scroll-behavior: smooth;
+}
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
-</head>
-<body id="top">
+body {
+    background: #080a10;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    <header class="header">
-        <a href="#top" class="logo">
-            <img src="assets/logo.png" alt="МоёМоре">
-        </a>
+/* ШАПКА */
 
-        <nav class="navigation">
-            <a href="#concerts">Концерты</a>
-            <a href="#releases">Релизы</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
-    </header>
 
-    <main>
-<section class="hero">
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-    <h1 class="visually-hidden">МоёМоре — музыкальная группа</h1>
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    <div class="hero-image"></div>
-    <div class="hero-overlay"></div>
+    padding: 10px 10%;
 
-</section>
+    background: transparent;
+    border-bottom: 1px solid transparent;
 
-        <!-- РАЗДЕЛ КОНЦЕРТОВ -->
+    transition: background .35s ease, 
+                backdrop-filter .35s ease,
+                border-color .35s ease;
+}
+/* Навигация */
 
-        <section class="concerts" id="concerts">
+/* Шапка после начала прокрутки */
+.header.scrolled {
+    background: rgba(10, 13, 20, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-            <div class="section-heading">
-                <p class="eyebrow">CONCERTS</p>
-                <h2>КОНЦЕРТЫ</h2>
-            </div>
+.logo img {
+    display: block;
+    width: 145px;
+    height: auto;
+}
 
-<div class="concert-list" id="concert-list"></div>
+.navigation {
+    display: flex;
+    gap: 42px;
+}
 
-        </section>
+.navigation a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 1;
+    display: inline-block;
+    transition: color 0.3s ease,
+                opacity 0.3s ease,
+                transform 0.3s ease;
+}
 
-<!-- РАЗДЕЛ РЕЛИЗОВ -->
-<section class="releases" id="releases">
+.navigation a:hover {
+    opacity: 0.65;
+    transform: translateY(-2px);
+}
 
-    <div class="releases-heading">
-        <p class="eyebrow">RELEASES</p>
-        <h2>РЕЛИЗЫ</h2>
-    </div>
+/* ПЕРВЫЙ ЭКРАН */
 
-<div class="releases-grid" id="releases-grid"></div>
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #10121a;
+}
 
-</section>
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/band.jpg");
+    background-image: image-set(
+        url("assets/band.avif") type("image/avif"),
+        url("assets/band.webp") type("image/webp")
+    );
+    background-size: cover;
+    background-position: center 42%;
+    background-repeat: no-repeat;
+    transform: scale(1.03);
+    animation: imageReveal 1.5s ease-out forwards;
+}
 
-<!-- РАЗДЕЛ КОНТАКТОВ -->
-<section class="contacts" id="contacts">
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 7, 13, 0.85) 0%,
+            rgba(5, 7, 13, 0.45) 50%,
+            rgba(5, 7, 13, 0.12) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(5, 7, 13, 0.65) 0%,
+            transparent 40%
+        );
+}
 
-    <div class="contacts-heading">
-        <p class="eyebrow">CONTACTS</p>
-        <h2>КОНТАКТЫ</h2>
-    </div>
+/* ТЕКСТ */
 
-    <div class="contacts-content">
-        <p>
-            Есть вопросы, предложения или желание
-            организовать совместное мероприятие?
-        </p>
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: 10%;
+    margin-top: 50px;
+    max-width: 650px;
+    animation: contentReveal 1.2s ease-out both;
+}
 
-        <a href="https://vk.me/insidemysea"
-           class="contact-button"
-           target="_blank"
-           rel="noopener noreferrer">
-            НАПИСАТЬ НАМ В VK
-            <span>↗</span>
-        </a>
-                <div class="social-links">
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 25px;
+}
 
-            <a href="https://vk.ru/insidemysea"
-               class="social-link"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="ВКонтакте"
-               title="ВКонтакте">
-                <span class="social-vk">vk</span>
-            </a>
+.hero-content h1 {
+    font-size: clamp(65px, 10vw, 125px);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -7px;
+    margin-bottom: 28px;
+}
 
-            <a href="https://t.me/insidemysea"
-               class="social-link"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Telegram"
-               title="Telegram">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M21.5 3.5 18.3 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.7 13.5l-4.9-1.5c-1.1-.3-1.1-1.1.2-1.6L20.2 3c.9-.3 1.7.2 1.3.5Z"/>
-                </svg>
-            </a>
+.hero-description {
+    font-size: clamp(15px, 2vw, 19px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 40px;
+}
 
-            <a href="https://www.youtube.com/@inside_mysea/videos"
-               class="social-link"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="YouTube"
-               title="YouTube">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
-                </svg>
-            </a>
+/* КНОПКА */
 
-        </div>
-    </div>
+.listen-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+    padding: 17px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: background 0.3s, color 0.3s;
+}
 
-    <div class="contacts-footer">
-        <span>МОЁМОРЕ©</span>
-        <span>2026</span>
-    </div>
+.listen-button:hover {
+    background: #ffffff;
+    color: #080a10;
+}
 
-</section>
-    </main>
+.listen-button span {
+    font-size: 17px;
+}
 
-    <script src="concerts.js"></script>
-    <script src="releases.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+.hero-number {
+    position: absolute;
+    bottom: 38px;
+    right: 6%;
+    z-index: 2;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* АНИМАЦИИ */
+
+@keyframes imageReveal {
+    from {
+        transform: scale(1.08);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: scale(1.03);
+        opacity: 1;
+    }
+}
+
+@keyframes contentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+@media (max-width: 700px) {
+
+    .header {
+        height: 85px;
+        padding: 20px 6%;
+    }
+
+    .logo img {
+        width: 105px;
+    }
+
+    .navigation {
+        gap: 15px;
+    }
+
+    .navigation a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero-image {
+        background-position: center center;
+    }
+
+.hero-overlay {
+    background:
+        linear-gradient(
+            0deg,
+            rgba(5, 7, 13, 0.08) 0%,
+            transparent 40%
+        );
+}
+
+    .hero-content {
+        margin: 100px 7% 40px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(55px, 13vw, 85px);
+        letter-spacing: -4px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-number {
+        bottom: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* РАЗДЕЛ КОНЦЕРТОВ */
+
+.concerts {
+    padding: 120px 10%;
+    background: #0b0d13;
+    min-height: 500px;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.section-heading .eyebrow {
+    color: #8793a8;
+}
+
+.section-heading h2 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: .95;
+    letter-spacing: 0;
+    font-weight: 800;
+}
+
+/* КАРТОЧКА КОНЦЕРТА */
+
+.concert-card {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+        110deg,
+        #151923,
+        #10131b
+    );
+    transition: border-color 0.3s;
+}
+
+.concert-card:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ДАТА */
+
+.concert-date {
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+}
+
+.date-day {
+    font-size: 76px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -5px;
+}
+
+.date-month {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #929bad;
+    margin-top: 8px;
+}
+
+/* ИНФОРМАЦИЯ */
+
+.concert-info {
+    flex: 1;
+}
+
+.concert-info h3 {
+    font-size: clamp(20px, 3vw, 30px);
+    margin-bottom: 12px;
+}
+
+.concert-location {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #a5adbb;
+}
+
+.concert-location span {
+    padding: 0 5px;
+    color: #596274;
+}
+
+/* ССЫЛКИ */
+
+.concert-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.concert-links a {
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
+}
+
+.concert-links a:hover {
+    background: #ffffff;
+    color: #080a10;
+}
+
+.concert-links .ticket-button {
+    background: #ffffff;
+    color: #080a10;
+}
+
+.concert-links .ticket-button:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ КОНЦЕРТОВ */
+
+@media (max-width: 700px) {
+
+    .concerts {
+        padding: 85px 7%;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .concert-card {
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 25px;
+    }
+
+    .concert-date {
+        min-width: 75px;
+    }
+
+    .date-day {
+        font-size: 60px;
+    }
+
+    .concert-info {
+        min-width: 100%;
+        order: 2;
+    }
+
+    .concert-date {
+        order: 1;
+    }
+
+    .concert-links {
+        order: 3;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .concert-links a {
+        flex: 1;
+        padding: 14px 8px;
+        font-size: 9px;
+    }
+}
+/* НЕТ ПРЕДСТОЯЩИХ КОНЦЕРТОВ */
+
+.no-concerts {
+    padding: 45px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.no-concerts p {
+    color: #aeb5c2;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+/* РАЗДЕЛ КОНТАКТОВ */
+
+.contacts {
+    padding: 140px 10% 60px;
+    background: #090b11;
+    min-height: 600px;
+}
+
+.contacts-heading {
+    margin-bottom: 70px;
+}
+
+.contacts-heading .eyebrow {
+    color: #8793a8;
+}
+
+.contacts-heading h2 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: .95;
+    letter-spacing: 0px;
+    font-weight: 800;
+}
+
+.contacts-content {
+    max-width: 500px;
+    margin-left: auto;
+}
+
+.contacts-content p {
+    color: #aeb5c2;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+    padding: 18px 25px;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contact-button:hover {
+    background: #ffffff;
+    color: #080a10;
+}
+/* СОЦСЕТИ */
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    background: #ffffff;
+    color: #080a10;
+}
+
+.social-link svg {
+    width: 23px;
+    height: 23px;
+    fill: currentColor;
+}
+
+.social-vk {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.contacts-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 130px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    color: #687183;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+@media (max-width: 700px) {
+    .contacts {
+        padding: 90px 7% 40px;
+    }
+
+    .contacts-heading h2 {
+        letter-spacing: -2px;
+    }
+
+    .contacts-content {
+        margin-left: 0;
+    }
+
+    .contacts-footer {
+        margin-top: 90px;
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+}
+
+/* РАЗДЕЛ РЕЛИЗОВ */
+
+.releases {
+    position: relative;
+    padding: 90px 10% 35px;
+    background: #0e1119;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.releases-heading {
+    margin-bottom: 35px;
+}
+
+.releases-heading .eyebrow {
+    color: #8793a8;
+}
+
+.releases-heading h2 {
+    font-size: clamp(45px, 7vw, 90px);
+    line-height: .95;
+    letter-spacing: 0px;
+    font-weight: 800;
+}
+
+.releases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    max-width: 700px;
+    margin-left: auto;
+}
+
+.release-card {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.release-cover {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: #171c27;
+}
+
+.release-cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .6s ease, filter .6s ease;
+}
+
+.release-card:hover .release-cover img {
+    transform: scale(1.04);
+    filter: brightness(.7);
+}
+
+.release-arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 28px;
+    opacity: 0;
+    transform: translate(-5px, 5px);
+    transition: .3s ease;
+}
+
+.release-card:hover .release-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.release-card h3 {
+    margin-top: 22px;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 700;
+    letter-spacing: -.5px;
+}
+
+.release-card p {
+    margin-top: 7px;
+    color: #8793a8;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.releases-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    color: #8793a8;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+@media (max-width: 700px) {
+    .releases {
+        padding: 90px 7% 40px;
+    }
+
+    .releases-heading {
+        margin-bottom: 45px;
+    }
+
+    .releases-heading h2 {
+        letter-spacing: -2px;
+    }
+
+    .releases-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .releases-footer {
+        margin-top: 60px;
+        font-size: 9px;
+    }
+}
+section[id] {
+    scroll-margin-top: 90px;
+}
