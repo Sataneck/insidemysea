@@ -1,10 +1,17 @@
-
 /* ОСНОВНЫЕ НАСТРОЙКИ */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('assets/fonts/montserrat-variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 .visually-hidden {
