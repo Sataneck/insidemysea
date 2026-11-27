@@ -80,9 +80,10 @@ if (releasesGrid) {
 
         <div class="release-cover">
             <picture>
-                <source srcset="${release.image}.avif" type="image/avif">
-                <source srcset="${release.image}.webp" type="image/webp">
-                <img src="${release.fallback}"
+                <img src="${release.image}-620.avif"
+                     srcset="${release.image}-620.avif 620w,
+                             ${release.image}-1240.avif 1240w"
+                     sizes="(max-width: 700px) 86vw, 335px"
                      alt="${release.alt}"
                      loading="lazy">
             </picture>
@@ -94,5 +95,5 @@ if (releasesGrid) {
         <p>${release.year}</p>
 
     </a>
-`).join('');
+    `).join('');
 }
